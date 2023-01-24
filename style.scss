@@ -135,8 +135,6 @@ $secondary-color : #ffab0f;
                     }
                 }
             }
-
-
         }
 
         &.login {
@@ -187,8 +185,6 @@ $secondary-color : #ffab0f;
         }
 
     }
-
-
 }
 
 @media screen and (max-width: 768px) {
@@ -216,7 +212,7 @@ $secondary-color : #ffab0f;
                 opacity: 0;
             }
         }
-
+        
         &:has(:checked) .box:not(:has(:checked)) {
             height: 0%;
             width: 100%;
@@ -228,7 +224,6 @@ $secondary-color : #ffab0f;
             .arrow {
                 rotate: 90deg;
             }
-
         }
     }
 
