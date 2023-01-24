@@ -57,9 +57,12 @@
 }
 .container .box .form-card .header {
   display: flex;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   padding: 10px 0px;
   width: 100%;
+}
+.container .box .form-card .header h3 {
+  color: rgba(0, 0, 0, 0.7);
 }
 .container .box .form-card .body {
   display: flex;
@@ -92,10 +95,14 @@
 }
 .container .box .form-card .footer button[type=submit] {
   padding: 10px 20px;
-  background: rgba(221, 221, 221, 0.8);
+  background: #0092d2;
+  color: white;
   font-weight: 500;
   border-radius: 1rem;
   cursor: pointer;
+}
+.container .box .form-card .footer button[type=submit]:hover {
+  background: #01638d;
 }
 .container .box .form-card .footer span {
   display: flex;
@@ -111,6 +118,9 @@
 }
 .container .box .form-card .footer span .link:hover {
   color: #01638d;
+}
+.container .box .form-card .footer span .link:focus-visible {
+  outline: none;
 }
 .container .box.login {
   background: url("./assets/login-page.avif");
@@ -130,31 +140,27 @@
   transform: rotate(45deg);
   left: 20px;
 }
-@media screen and (min-width: 769px) {
-  .container:not(:has(:checked)) .box:hover {
-    width: 65%;
-  }
-  .container:not(:has(:checked)):has(:hover) .box:not(:hover) {
-    width: 35%;
-  }
-  .container:has(:checked) .box:has(:checked) {
-    width: 90%;
-  }
-  .container:has(:checked) .box:has(:checked) .arrow {
-    opacity: 0;
-  }
-  .container:has(:checked) .box:not(:has(:checked)) {
-    width: 10%;
-  }
-  .container:has(:checked) .box:not(:has(:checked)) :not(.arrow) {
-    opacity: 0;
-  }
-  .container:has(:checked) .box:not(:has(:checked)) .arrow {
-    rotate: 180deg;
-  }
+.container:has(:checked) .box:has(:checked) {
+  width: 90%;
+}
+.container:has(:checked) .box:has(:checked) .arrow {
+  opacity: 0;
+}
+.container:has(:checked) .box:not(:has(:checked)) {
+  width: 10%;
+}
+.container:has(:checked) .box:not(:has(:checked)) .form-card {
+  transform: scale(0);
+  transition-duration: 1.5s;
+}
+.container:has(:checked) .box:not(:has(:checked)) :not(.arrow) {
+  opacity: 0;
+}
+.container:has(:checked) .box:not(:has(:checked)) .arrow {
+  rotate: 180deg;
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 768px) {
   .container {
     flex-direction: column;
     height: 100vh;
@@ -169,6 +175,7 @@
     display: none;
   }
   .container:has(:checked) .box:has(:checked) {
+    width: 100%;
     height: 100%;
   }
   .container:has(:checked) .box:has(:checked) .arrow {
@@ -176,6 +183,7 @@
   }
   .container:has(:checked) .box:not(:has(:checked)) {
     height: 0%;
+    width: 100%;
   }
   .container:has(:checked) .box:not(:has(:checked)) :not(.arrow) {
     opacity: 0;
